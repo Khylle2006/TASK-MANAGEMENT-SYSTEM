@@ -1,0 +1,1464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>701</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1000</width>
+    <height>700</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+/* Main background - pure white */
+QMainWindow, QWidget#centralwidget, QStackedWidget, QDialog {
+    background-color: #FFFFFF;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+}
+
+/* All frames - white with subtle border */
+QFrame {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    border: 1px solid #E5E5E5;
+}
+
+/* Sidebar specific */
+QFrame#sidebar {
+    background-color: #FFFFFF;
+    border-right: 1px solid #E5E5E5;
+    border-radius: 0px;
+}
+
+/* Labels - consistent grayscale */
+QLabel {
+    color: #333333;
+}
+
+QLabel#statLabel, QLabel#label_3, QLabel#label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #666666;
+}
+
+QLabel#lblDueToday, QLabel#lblCompleted, QLabel#lblOverDue {
+    font-size: 30px;
+    font-weight: 700;
+    color: #333333;
+}
+
+QLabel#statSub {
+    font-size: 11px;
+    color: #666666;
+}
+
+QLabel#cardTitle, QLabel#cardTitle_2, QLabel#cardTitle_3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #333333;
+}
+
+QLabel#pageTitle, QLabel#pageTitle_2, QLabel#pageTitle_3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333333;
+}
+
+QLabel#pageSubtitle {
+    font-size: 12px;
+    color: #666666;
+}
+
+QLabel#newTaskLabel, QLabel#cardSectionTitle {
+    font-size: 13px;
+    font-weight: 700;
+    color: #333333;
+}
+
+QLabel#fieldLabel, QLabel#fieldLabel_2, QLabel#fieldLabel_3, QLabel#fieldLabel_4, QLabel#fieldLabel_5 {
+    font-size: 10px;
+    font-weight: 600;
+    color: #666666;
+    letter-spacing: 1px;
+}
+
+QLabel#detailLabel {
+    font-size: 12px;
+    color: #666666;
+}
+
+QLabel#detailValueNormal {
+    font-size: 12px;
+    color: #333333;
+    font-weight: 500;
+}
+
+QLabel#detailValueGreen {
+    font-size: 12px;
+    color: #4CAF50;
+    font-weight: 600;
+}
+
+QLabel#detailValueRed {
+    font-size: 12px;
+    color: #F44336;
+    font-weight: 600;
+}
+
+QLabel#detailValueBlue {
+    font-size: 12px;
+    color: #2196F3;
+    font-weight: 500;
+}
+
+/* Badges - subtle gray tones */
+QLabel#overdueBadge, QLabel#upcomingBadge {
+    background-color: #F5F5F5;
+    color: #666666;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border: none;
+}
+
+QLabel#draftBadge {
+    background-color: #F5F5F5;
+    color: #666666;
+    border-radius: 6px;
+    font-size: 11px;
+    padding: 2px 8px;
+    border: 1px solid #E5E5E5;
+}
+
+QLabel#tagUrgentPill {
+    background-color: #F5F5F5;
+    color: #666666;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border: 1px solid #E5E5E5;
+}
+
+QLabel#tagWorkPill {
+    background-color: #F5F5F5;
+    color: #666666;
+    border-radius: 10px;
+    font-size: 11px;
+    padding: 3px 10px;
+    border: 1px solid #E5E5E5;
+}
+
+QLabel#appTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333333;
+    padding: 12px 16px 4px 16px;
+}
+
+QLabel#appSub {
+    font-size: 11px;
+    color: #666666;
+    padding: 0px 16px 16px 16px;
+}
+
+QLabel#lblUser {
+    color: #666666;
+    padding: 8px 16px;
+}
+
+QLabel#headerTitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333333;
+}
+
+QLabel#headerSubtitle {
+    font-size: 12px;
+    color: #666666;
+}
+
+QLabel#sectionLabel {
+    font-size: 10px;
+    font-weight: 600;
+    color: #666666;
+    letter-spacing: 1px;
+}
+
+/* Buttons - consistent styling */
+QPushButton {
+    background-color: #FFFFFF;
+    color: #333333;
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    font-size: 13px;
+    padding: 8px 12px;
+}
+
+QPushButton:hover {
+    background-color: #F5F5F5;
+    border-color: #CCCCCC;
+}
+
+QPushButton:pressed {
+    background-color: #E8E8E8;
+}
+
+QPushButton#btnNavHome, QPushButton#btnAddTask_2, QPushButton#btnPriorityView, QPushButton#btnOverallTask, QPushButton#btnOrganizeTask {
+    text-align: left;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 0px;
+}
+
+QPushButton#btnNavHome:checked, QPushButton#btnAddTask_2:checked, QPushButton#btnPriorityView:checked, QPushButton#btnOverallTask:checked, QPushButton#btnOrganizeTask:checked {
+    background-color: #F5F5F5;
+    border-left: 3px solid #333333;
+}
+
+QPushButton#btnLogout {
+    background-color: #F5F5F5;
+    color: #666666;
+    border: 1px solid #E5E5E5;
+    border-radius: 6px;
+    font-weight: bold;
+    margin: 8px 16px 16px 16px;
+}
+
+QPushButton#btnLogout:hover {
+    background-color: #FFEBEE;
+    color: #F44336;
+    border-color: #F44336;
+}
+
+QPushButton#btnAddTask {
+    background-color: #F5F5F5;
+    color: #666666;
+    border: 1px solid #E5E5E5;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 12px;
+}
+
+QPushButton#btnCreateTask {
+    background-color: #333333;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px;
+}
+
+QPushButton#btnCreateTask:hover {
+    background-color: #444444;
+}
+
+QPushButton#btnSaveDraft, QPushButton#btnCancel {
+    background-color: #FFFFFF;
+    color: #666666;
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    font-size: 13px;
+    padding: 10px;
+}
+
+QPushButton#btnSaveDraft:hover, QPushButton#btnCancel:hover {
+    background-color: #F5F5F5;
+}
+
+QPushButton#addTagBtn, QPushButton#addSubtaskBtn {
+    background-color: transparent;
+    color: #666666;
+    border: 1px dashed #CCCCCC;
+    border-radius: 10px;
+    font-size: 11px;
+    padding: 3px 10px;
+}
+
+QPushButton#addTagBtn:hover, QPushButton#addSubtaskBtn:hover {
+    background-color: #F5F5F5;
+    border-color: #999999;
+}
+
+QPushButton#btnAddList {
+    background-color: #333333;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 20px;
+}
+
+QPushButton#btnAddList:hover {
+    background-color: #444444;
+}
+
+QPushButton#btnDeleteList {
+    background-color: transparent;
+    color: #999999;
+    border: 1px solid #E5E5E5;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 11px;
+}
+
+QPushButton#btnDeleteList:hover {
+    background-color: #FFEBEE;
+    color: #F44336;
+    border-color: #F44336;
+}
+
+/* Input fields - light gray background */
+QLineEdit#inputField, QLineEdit#listNameInput {
+    background-color: #F8F8F8;
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #333333;
+    padding: 8px 12px;
+}
+
+QLineEdit#inputField:focus, QLineEdit#listNameInput:focus {
+    border: 1px solid #999999;
+    background-color: #FFFFFF;
+}
+
+QTextEdit#descField {
+    background-color: #F8F8F8;
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #333333;
+    padding: 8px 12px;
+}
+
+QTextEdit#descField:focus {
+    border: 1px solid #999999;
+    background-color: #FFFFFF;
+}
+
+QComboBox#comboField, QComboBox, QComboBox#sectionCombo {
+    background-color: #F8F8F8;
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #333333;
+    padding: 7px 12px;
+}
+
+QComboBox#comboField::drop-down, QComboBox::drop-down {
+    border: none;
+    width: 20px;
+}
+
+QDateEdit {
+    background-color: #F8F8F8;
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #333333;
+    padding: 5px 8px;
+}
+
+/* Tables */
+QTableWidget {
+    background-color: #FFFFFF;
+    border: none;
+    gridline-color: #F0F0F0;
+    color: #333333;
+}
+
+QTableWidget::item {
+    padding: 8px;
+}
+
+QTableWidget::item:selected {
+    background-color: #F5F5F5;
+    color: #333333;
+}
+
+QHeaderView::section {
+    background-color: #FAFAFA;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #E5E5E5;
+    color: #666666;
+    font-weight: 600;
+}
+
+/* List Widget */
+QListWidget#listsList {
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    outline: none;
+}
+
+QListWidget#listsList::item {
+    padding: 0px;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+QListWidget#listsList::item:hover {
+    background-color: #F8F8F8;
+}
+
+QListWidget#listsList::item:selected {
+    background-color: #F5F5F5;
+}
+
+/* Frames and containers */
+QFrame#mainCard, QFrame#rightCard, QFrame#statCard, QFrame#tasksCard, QFrame#overdueCard, QFrame#upcomingCard, QFrame#addListFrame {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 12px;
+}
+
+QFrame#addListFrame {
+    background-color: #F8F8F8;
+}
+
+QFrame#listsContainer {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+}
+
+QFrame#frame, QFrame#frame_2 {
+    color: #E5E5E5;
+    border: none;
+    border-top: 1px solid #E5E5E5;
+}
+
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="sidebar">
+      <property name="maximumSize">
+       <size>
+        <width>250</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="sideLayout">
+       <property name="spacing">
+        <number>2</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="appTitle">
+         <property name="text">
+          <string>Taskly</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnNavHome">
+         <property name="text">
+          <string>🏠 Tasks Dashboard</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnAddTask_2">
+         <property name="text">
+          <string>📝 Add Task</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnPriorityView">
+         <property name="text">
+          <string>⭐ Priority</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnOverallTask">
+         <property name="text">
+          <string>📋 Overall Task</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnOrganizeTask">
+         <property name="text">
+          <string>📁 Organize Task</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblUser">
+         <property name="text">
+          <string>👤 User</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnLogout">
+         <property name="text">
+          <string>Logout</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>4</number>
+      </property>
+      <widget class="QWidget" name="pageHome">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <layout class="QVBoxLayout" name="_2">
+          <property name="spacing">
+           <number>14</number>
+          </property>
+          <property name="leftMargin">
+           <number>24</number>
+          </property>
+          <property name="topMargin">
+           <number>20</number>
+          </property>
+          <property name="rightMargin">
+           <number>24</number>
+          </property>
+          <property name="bottomMargin">
+           <number>16</number>
+          </property>
+          <item>
+           <layout class="QHBoxLayout" name="_3">
+            <item>
+             <widget class="QLabel" name="pageTitle">
+              <property name="text">
+               <string>Dashboard</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="_4">
+            <property name="spacing">
+             <number>12</number>
+            </property>
+            <item>
+             <widget class="QFrame" name="statCard">
+              <layout class="QVBoxLayout" name="_5">
+               <property name="spacing">
+                <number>4</number>
+               </property>
+               <property name="leftMargin">
+                <number>16</number>
+               </property>
+               <property name="topMargin">
+                <number>14</number>
+               </property>
+               <property name="rightMargin">
+                <number>16</number>
+               </property>
+               <property name="bottomMargin">
+                <number>14</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="statLabel">
+                 <property name="text">
+                  <string>DUE TODAY</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="lblDueToday">
+                 <property name="text">
+                  <string>8</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="frame_8">
+              <layout class="QVBoxLayout" name="verticalLayout">
+               <property name="leftMargin">
+                <number>16</number>
+               </property>
+               <property name="topMargin">
+                <number>14</number>
+               </property>
+               <property name="rightMargin">
+                <number>16</number>
+               </property>
+               <property name="bottomMargin">
+                <number>14</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label">
+                 <property name="text">
+                  <string>Completed</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="lblCompleted">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="frame_10">
+              <layout class="QVBoxLayout" name="verticalLayout_2">
+               <property name="leftMargin">
+                <number>16</number>
+               </property>
+               <property name="topMargin">
+                <number>14</number>
+               </property>
+               <property name="rightMargin">
+                <number>16</number>
+               </property>
+               <property name="bottomMargin">
+                <number>14</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_3">
+                 <property name="text">
+                  <string>OverDue</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="lblOverDue">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="_8">
+            <property name="spacing">
+             <number>12</number>
+            </property>
+            <item>
+             <widget class="QFrame" name="tasksCard">
+              <layout class="QVBoxLayout" name="_11">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>18</number>
+               </property>
+               <property name="topMargin">
+                <number>16</number>
+               </property>
+               <property name="rightMargin">
+                <number>18</number>
+               </property>
+               <property name="bottomMargin">
+                <number>16</number>
+               </property>
+               <item>
+                <layout class="QHBoxLayout" name="_12">
+                 <item>
+                  <widget class="QLabel" name="cardTitle">
+                   <property name="text">
+                    <string>Today's Tasks</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>0</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btnAddTask">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>13</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Add Task</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QTableWidget" name="tblTodayTask"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="_25">
+            <property name="spacing">
+             <number>12</number>
+            </property>
+            <item>
+             <widget class="QFrame" name="overdueCard">
+              <layout class="QVBoxLayout" name="_26">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>18</number>
+               </property>
+               <property name="topMargin">
+                <number>16</number>
+               </property>
+               <property name="rightMargin">
+                <number>18</number>
+               </property>
+               <property name="bottomMargin">
+                <number>16</number>
+               </property>
+               <item>
+                <layout class="QHBoxLayout" name="_27">
+                 <item>
+                  <widget class="QLabel" name="cardTitle_2">
+                   <property name="text">
+                    <string>Overdue</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>0</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="overdueBadge">
+                   <property name="text">
+                    <string>4 tasks</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QTableWidget" name="tblOverdue"/>
+               </item>
+               <item>
+                <widget class="QFrame" name="frame_2">
+                 <property name="frameShape">
+                  <enum>QFrame::HLine</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="upcomingCard">
+              <layout class="QVBoxLayout" name="_34">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>18</number>
+               </property>
+               <property name="topMargin">
+                <number>16</number>
+               </property>
+               <property name="rightMargin">
+                <number>18</number>
+               </property>
+               <property name="bottomMargin">
+                <number>16</number>
+               </property>
+               <item>
+                <layout class="QHBoxLayout" name="_35">
+                 <item>
+                  <widget class="QLabel" name="cardTitle_3">
+                   <property name="text">
+                    <string>Upcoming</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>0</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="upcomingBadge">
+                   <property name="text">
+                    <string>Next 7 days</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QTableWidget" name="tblUpcoming"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer>
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pageAddTask">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <property name="leftMargin">
+         <number>20</number>
+        </property>
+        <property name="topMargin">
+         <number>20</number>
+        </property>
+        <property name="rightMargin">
+         <number>20</number>
+        </property>
+        <property name="bottomMargin">
+         <number>20</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="mainCard">
+          <layout class="QVBoxLayout" name="_7">
+           <property name="spacing">
+            <number>14</number>
+           </property>
+           <property name="leftMargin">
+            <number>22</number>
+           </property>
+           <property name="topMargin">
+            <number>20</number>
+           </property>
+           <property name="rightMargin">
+            <number>22</number>
+           </property>
+           <property name="bottomMargin">
+            <number>20</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="pageTitle_2">
+             <property name="text">
+              <string>Add Task</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="_9">
+             <property name="spacing">
+              <number>8</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="newTaskLabel">
+               <property name="text">
+                <string>New Task</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame">
+             <property name="frameShape">
+              <enum>QFrame::HLine</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="_10">
+             <property name="spacing">
+              <number>6</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="fieldLabel">
+               <property name="text">
+                <string>TASK TITLE</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="inputField">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="_14">
+             <property name="spacing">
+              <number>6</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="fieldLabel_2">
+               <property name="text">
+                <string>DESCRIPTION / NOTES</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTextEdit" name="descField"/>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="_15">
+             <property name="spacing">
+              <number>8</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="fieldLabel_3">
+               <property name="text">
+                <string>PRIORITY</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboBox">
+               <property name="editable">
+                <bool>false</bool>
+               </property>
+               <item>
+                <property name="text">
+                 <string>High</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Medium</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Low</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="listLayout">
+             <property name="spacing">
+              <number>6</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="fieldLabel_5">
+               <property name="text">
+                <string>LIST / CATEGORY</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="listComboLayout">
+               <item>
+                <widget class="QComboBox" name="listCombo">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                   <horstretch>1</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>-- No List --</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="btnRefreshLists">
+                 <property name="maximumSize">
+                  <size>
+                   <width>32</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Refresh lists</string>
+                 </property>
+                 <property name="text">
+                  <string>⟳</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="_17">
+             <property name="spacing">
+              <number>12</number>
+             </property>
+             <item>
+              <layout class="QVBoxLayout" name="_18">
+               <property name="spacing">
+                <number>6</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="fieldLabel_4">
+                 <property name="text">
+                  <string>DUE DATE</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QDateEdit" name="dateEdit">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="wrapping">
+                  <bool>true</bool>
+                 </property>
+                 <property name="calendarPopup">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="_19">
+             <property name="spacing">
+              <number>10</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="btnCancel">
+               <property name="text">
+                <string>Cancel</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnCreateTask">
+               <property name="text">
+                <string>Create Task</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pagePriorityView">
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <property name="leftMargin">
+         <number>20</number>
+        </property>
+        <property name="topMargin">
+         <number>20</number>
+        </property>
+        <property name="rightMargin">
+         <number>20</number>
+        </property>
+        <property name="bottomMargin">
+         <number>20</number>
+        </property>
+        <item>
+         <widget class="QWidget" name="widget" native="true">
+          <property name="maximumSize">
+           <size>
+            <width>801</width>
+            <height>52</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLabel" name="pageTitle_3">
+             <property name="text">
+              <string>Priority View</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item alignment="Qt::AlignRight">
+            <widget class="QLabel" name="label_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>99</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Priority Level:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_2">
+             <item>
+              <property name="text">
+               <string>High</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Medium</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Low</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tableWidget">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>550</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>640</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pageOverallTask">
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <property name="leftMargin">
+         <number>20</number>
+        </property>
+        <property name="topMargin">
+         <number>20</number>
+        </property>
+        <property name="rightMargin">
+         <number>20</number>
+        </property>
+        <property name="bottomMargin">
+         <number>20</number>
+        </property>
+        <item>
+         <widget class="QWidget" name="widget_3" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>801</width>
+            <height>50</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QLabel" name="pageTitle_6">
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>22</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Overall Task</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item alignment="Qt::AlignRight">
+            <widget class="QLabel" name="label_6">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>99</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Task Type</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="cmbTaskType">
+             <property name="minimumSize">
+              <size>
+               <width>115</width>
+               <height>0</height>
+              </size>
+             </property>
+             <item>
+              <property name="text">
+               <string/>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tblTasks">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>550</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>640</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pageOrganization"/>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

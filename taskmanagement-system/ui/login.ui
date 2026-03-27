@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoginWindow</class>
+ <widget class="QMainWindow" name="LoginWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>520</width>
+    <height>580</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Payroll System – Login</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+    QMainWindow { background-color: #1e2a3a; }
+    QWidget#centralwidget { background-color: #1e2a3a; }
+    QFrame#card { background-color: #253447; border-radius: 12px; }
+    QLabel#title { color: #ffffff; font-size: 22px; font-weight: bold; }
+    QLabel#subtitle { color: #8a9bb0; font-size: 12px; }
+    QLabel { color: #c8d6e5; font-size: 13px; }
+    QLineEdit {
+      background-color: #1e2a3a; border: 1px solid #3a4f66;
+      border-radius: 6px; padding: 8px 36px 8px 12px;
+      color: #ffffff; font-size: 13px;
+    }
+    QLineEdit:focus { border: 1px solid #4a9eff; }
+    QPushButton#btnLogin {
+      background-color: #4a9eff; color: #ffffff; border: none;
+      border-radius: 6px; font-size: 14px; font-weight: bold; padding: 10px;
+    }
+    QPushButton#btnLogin:hover   { background-color: #3a8ef0; }
+    QPushButton#btnLogin:pressed { background-color: #2a7ee0; }
+    QLabel#errorLabel { color: #ff5f5f; font-size: 12px; }
+    QComboBox {
+      background-color: #1e2a3a; border: 1px solid #3a4f66;
+      border-radius: 6px; padding: 8px 12px 8px 12px;
+      color: #ffffff; font-size: 13px;
+    }
+    QComboBox::drop-down {
+      subcontrol-origin: padding;
+      subcontrol-position: top right;
+      width: 30px;
+      border-left: 1px solid #3a4f66;
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+    QComboBox::down-arrow {
+      image: none;
+      width: 0; height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid #8a9bb0;
+    }
+    QComboBox:hover::down-arrow  { border-top-color: #ffffff; }
+    QComboBox QAbstractItemView {
+      background-color: #253447; color: #ffffff;
+      selection-background-color: #4a9eff;
+      border: 1px solid #3a4f66; border-radius: 4px;
+      padding: 4px;
+    }
+	QPushButton#btnSignup {
+      background:transparent; color:#ffffff; border:none;
+      border-radius:6px; font-size:13px; padding:10px;
+    }
+
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="card">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>80</y>
+      <width>360</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <layout class="QVBoxLayout" name="cardLayout">
+     <property name="spacing">
+      <number>14</number>
+     </property>
+     <property name="contentsMargins" stdset="0">
+      <number>36</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="title">
+       <property name="text">
+        <string>Task Management System</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="subtitle">
+       <property name="text">
+        <string>Sign in to your account</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblRole">
+       <property name="text">
+        <string>Login As</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="cmbRole">
+       <item>
+        <property name="text">
+         <string>Admin</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>User</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblUser">
+       <property name="text">
+        <string>Username</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="txtUsername">
+       <property name="placeholderText">
+        <string>Enter username</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblPass">
+       <property name="text">
+        <string>Password</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="txtPassword">
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+       <property name="placeholderText">
+        <string>Enter password</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="errorLabel">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnLogin">
+       <property name="text">
+        <string>Login</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="btnSignup">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>510</y>
+      <width>342</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Dont Have an Account? Sign Up</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

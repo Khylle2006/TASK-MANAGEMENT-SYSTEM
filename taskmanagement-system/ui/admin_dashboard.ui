@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AdminDashboard</class>
+ <widget class="QMainWindow" name="AdminDashboard">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>680</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Admin Dashboard – Payroll System</string>
+  </property>
+  <property name="styleSheet">
+   <string>
+    QMainWindow,QWidget { background-color: #1e2a3a; color: #c8d6e5; font-size: 13px; }
+    QFrame#sidebar {
+      background-color: #162031;
+      border-right: 1px solid #2a3d55;
+      min-width: 200px; max-width: 200px;
+    }
+    QLabel#appTitle { color:#ffffff; font-size:16px; font-weight:bold; padding:20px 16px 8px 16px; }
+    QLabel#appSub   { color:#4a9eff; font-size:11px; padding:0 16px 20px 16px; }
+    QPushButton.navBtn {
+      background: transparent; color: #8a9bb0;
+      border: none; border-radius: 6px;
+      text-align: left; padding: 10px 16px;
+      font-size: 13px;
+    }
+    QPushButton.navBtn:hover  { background:#1e2a3a; color:#ffffff; }
+    QPushButton.navBtn:checked{ background:#4a9eff20; color:#4a9eff; border-left:3px solid #4a9eff; }
+    QStackedWidget { background:#1e2a3a; }
+    QFrame.card {
+      background:#253447; border-radius:10px; padding:16px;
+    }
+    QLabel.cardValue { color:#ffffff; font-size:26px; font-weight:bold; }
+    QLabel.cardTitle { color:#8a9bb0; font-size:12px; }
+    QTableWidget {
+      background:#253447; border:none; border-radius:8px;
+      gridline-color:#2a3d55; color:#c8d6e5;
+    }
+    QTableWidget::item:selected { background:#4a9eff30; color:#ffffff; }
+    QHeaderView::section { background:#1e2a3a; color:#8a9bb0; padding:8px; border:none; border-bottom:1px solid #2a3d55; }
+    QPushButton#btnLogout {
+      background:#e74c3c; color:#ffffff; border:none;
+      border-radius:6px; padding:8px 16px; font-weight:bold;
+    }
+    QPushButton#btnLogout:hover { background:#c0392b; color:#ffffff; }
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="mainLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="contentsMargins" stdset="0">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="sidebar">
+      <layout class="QVBoxLayout" name="sideLayout">
+       <property name="spacing">
+        <number>2</number>
+       </property>
+       <property name="contentsMargins" stdset="0">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="appTitle">
+         <property name="text">
+          <string>💼 Taskl</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="appSub">
+         <property name="text">
+          <string>Admin Panel</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnNavDash">
+         <property name="text">
+          <string>🏠  Dashboard</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnNavUsers">
+         <property name="text">
+          <string>👥  Users</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblUser">
+         <property name="styleSheet">
+          <string>color:#8a9bb0; padding:8px 16px;</string>
+         </property>
+         <property name="text">
+          <string>               👤 Admin</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnLogout">
+         <property name="styleSheet">
+          <string>margin:8px 16px 16px 16px; background-color:#e74c3c; color:#ffffff; border:none; border-radius:6px; font-weight:bold; font-size:13px;</string>
+         </property>
+         <property name="text">
+          <string>Logout</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="pageDash">
+       <layout class="QVBoxLayout">
+        <property name="contentsMargins" stdset="0">
+         <number>24</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="lblDashTitle">
+          <property name="styleSheet">
+           <string>font-size:20px;font-weight:bold;color:#fff;</string>
+          </property>
+          <property name="text">
+           <string>Dashboard Overview</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="statsRow">
+          <item>
+           <widget class="QFrame" name="cardEmp">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <layout class="QVBoxLayout">
+             <item>
+              <widget class="QLabel" name="valEmp">
+               <property name="styleSheet">
+                <string>color:#4a9eff;font-size:28px;font-weight:bold;</string>
+               </property>
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label">
+               <property name="styleSheet">
+                <string>color:#8a9bb0;</string>
+               </property>
+               <property name="text">
+                <string>Total Users</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tblRecentUsers">
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <property name="columnCount">
+           <number>5</number>
+          </property>
+          <property name="horizontalHeaderLabels" stdset="0">
+           <stringlist>
+            <string>Employee ID</string>
+            <string>Name</string>
+            <string>Month/Year</string>
+            <string>Net Pay</string>
+            <string>Generated On</string>
+           </stringlist>
+          </property>
+          <column/>
+          <column/>
+          <column/>
+          <column/>
+          <column/>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pageUsers"/>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
